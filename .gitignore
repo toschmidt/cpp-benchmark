@@ -1,0 +1,12 @@
+# MacOS
+.DS_Store
+
+# NixOS
+.envrc
+.direnv
+shell.nix
+
+# IntelliJ
+.idea
+cmake-build-*/
+
