@@ -3,7 +3,7 @@ project(cpp-benchmark)
 
 # Options for building the project
 option(ENABLE_TESTING "Enable testing of the project." OFF)
-option(ENABLE_BENCHMARKING "Enable benchmarking of the project." OFF)
+option(ENABLE_BENCHMARKING "Enable benchmarking of the project." ON)
 option(ENABLE_INSTALL "Enable installation of the library." ON)
 
 # C++ Standards
@@ -18,7 +18,7 @@ set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "${CMAKE_CXX_FLAGS_RELWITHDEBINFO} --coverage
 set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}")
 
 # Standard Libraries
-# include(${CMAKE_SOURCE_DIR}/cmake/import/threads.cmake)
+include(${CMAKE_SOURCE_DIR}/cmake/import/googlebenchmark.cmake)
 
 # Libraries
 include(${CMAKE_SOURCE_DIR}/cmake/import/cpp-utility.cmake)
@@ -26,3 +26,5 @@ include(${CMAKE_SOURCE_DIR}/cmake/import/cpp-utility.cmake)
 # Implementation
 add_subdirectory(src)
 
+# Benchmark
+add_subdirectory(benchmark)
