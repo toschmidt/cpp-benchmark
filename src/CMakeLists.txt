@@ -4,7 +4,8 @@ add_library(cpp-benchmark STATIC ${CPP_FILES})
 target_include_directories(cpp-benchmark
         PUBLIC $<INSTALL_INTERFACE:include> $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
         PRIVATE ${CMAKE_SOURCE_DIR}/src)
-target_link_libraries(cpp-benchmark PRIVATE cpp-utility googlebenchmark)
+target_link_libraries(cpp-benchmark PRIVATE googlebenchmark threads)
+target_link_libraries(cpp-benchmark INTERFACE cpp-utility)
 
 if (ENABLE_INSTALL)
     include(GNUInstallDirs)
