@@ -45,7 +45,7 @@ namespace benchmark {
    }
 
    BenchmarkArguments* BenchmarkArguments::color(bool value) {
-      push_back(std::string{"--benchmark_format="} + ((value) ? "true" : "false"));
+      push_back(std::string{"--benchmark_color="} + ((value) ? "true" : "false"));
       return this;
    }
 

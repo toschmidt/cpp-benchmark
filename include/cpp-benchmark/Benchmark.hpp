@@ -1,13 +1,9 @@
 #pragma once
 
 #include "BenchmarkArguments.hpp"
+#include "PerfBenchmark.hpp"
 #include <benchmark/benchmark.h>
 
-namespace benchmark {
-
-   class Benchmark : public ::benchmark::Fixture {};
-
-} // namespace benchmark
 
 #define MAIN()                                                  \
    extern benchmark::BenchmarkArguments* arguments;             \
