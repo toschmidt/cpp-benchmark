@@ -4,6 +4,11 @@
 #include "PerfBenchmark.hpp"
 #include <benchmark/benchmark.h>
 
+#define REGISTER_BENCHMARK(BenchmarkType, ...)                                                        \
+   static ::benchmark::internal::Benchmark* BENCHMARK_PRIVATE_NAME() BENCHMARK_UNUSED =               \
+      (::benchmark::internal::RegisterBenchmarkInternal((new BenchmarkType())->Name(#BenchmarkType))) \
+         ->Unit(benchmark::kMillisecond)                                                              \
+         ->UseManualTime()
 
 #define MAIN()                                                  \
    extern benchmark::BenchmarkArguments* arguments;             \
