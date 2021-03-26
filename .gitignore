@@ -4,7 +4,6 @@
 # NixOS
 .envrc
 .direnv
-shell.nix
 
 # IntelliJ
 .idea
