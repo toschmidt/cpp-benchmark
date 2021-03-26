@@ -1,0 +1,50 @@
+{
+  "$schema": "../../benchmark-generator/benchmark-definition.schema.json",
+  "type": "definition",
+  "template": "./benchmark.cpp.template",
+  "generators": {
+    "exp": {
+      "path": "./exp.py",
+      "method": "exp",
+      "attributes": {
+        "base": {
+          "type": "number"
+        },
+        "exp_min": {
+          "type": "integer"
+        },
+        "exp_max": {
+          "type": "integer"
+        },
+        "exp_step": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "arguments": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "int",
+        "double"
+      ]
+    },
+    "operation": {
+      "type": "string",
+      "enum": [
+        "add",
+        "subtract",
+        "mul",
+        "division",
+        "mod",
+        "shift"
+      ]
+    }
+  },
+  "parameters": {
+    "n": {
+      "type": "integer"
+    }
+  }
+}

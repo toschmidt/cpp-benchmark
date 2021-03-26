@@ -1,0 +1,12 @@
+#include <ArithmeticBenchmark.hpp>
+#include <cpp-benchmark/Benchmark.hpp>
+
+{% for benchmark in benchmarks %}
+using {{benchmark.type}}_{{benchmark.operation}}_benchmark = ArithmeticBenchmark<double, {{benchmark.operation}}>;
+REGISTER_BENCHMARK({{benchmark.type}}_{{benchmark.operation}}_benchmark)
+    ->ArgsProduct({
+        { {{ benchmark.parameters.n|join(", ") }} }
+    })->Iterations(5);
+{% endfor %}
+
+MAIN()->countersTabular()->format(benchmark::CONSOLE);

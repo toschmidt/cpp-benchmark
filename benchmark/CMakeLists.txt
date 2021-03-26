@@ -8,4 +8,15 @@ if (ENABLE_BENCHMARKING)
     # Link the benchmark with the project's library
     target_link_libraries(benchmark PRIVATE cpp-benchmark googlebenchmark)
 
+
+    # generate benchmarks for the definitions in the generated folder
+    generate_benchmarks_from_folder(${CMAKE_SOURCE_DIR}/benchmark BENCHMARKS)
+
+    # header only library to link the generated benchmarks with
+    add_library(benchmark_lib INTERFACE)
+    target_include_directories(benchmark_lib INTERFACE ${CMAKE_SOURCE_DIR}/benchmark)
+
+    foreach (target ${BENCHMARKS})
+        target_link_libraries(${target} PRIVATE cpp-benchmark googlebenchmark benchmark_lib)
+    endforeach ()
 endif ()

@@ -1,0 +1,26 @@
+{
+  "$schema": "./definition.schema.json",
+  "name": "",
+  "type": "benchmark",
+  "parameters": {
+    "n": {
+      "generator": "exp",
+      "attributes": {
+        "base": 10,
+        "exp_min": 6,
+        "exp_max": 9,
+        "exp_step": 1
+      }
+    }
+  },
+  "benchmarks": [
+    {
+      "type": "int",
+      "operation": "add"
+    },
+    {
+      "type": "int",
+      "operation": "mul"
+    }
+  ]
+}

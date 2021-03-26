@@ -10,3 +10,6 @@ shell.nix
 .idea
 cmake-build-*/
 
+# schema
+*.schema.json
+

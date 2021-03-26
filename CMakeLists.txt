@@ -24,6 +24,9 @@ include(${CMAKE_SOURCE_DIR}/cmake/import/threads.cmake)
 # Libraries
 include(${CMAKE_SOURCE_DIR}/cmake/import/cpp-utility.cmake)
 
+# Benchmark Generator
+include(benchmark-generator/benchmark-generator.cmake)
+
 # Implementation
 add_subdirectory(src)
 
