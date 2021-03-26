@@ -1,3 +1,7 @@
 [submodule "cmake"]
 	path = cmake
 	url = https://github.com/toschmidt/cmake-files.git
+
+[submodule "benchmark-generator"]
+	path = benchmark-generator
+	url = https://github.com/toschmidt/benchmark-generator.git
