@@ -4,7 +4,7 @@ add_library(cpp-benchmark STATIC ${CPP_FILES})
 target_include_directories(cpp-benchmark
         PUBLIC $<INSTALL_INTERFACE:include> $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/include>
         PRIVATE ${CMAKE_SOURCE_DIR}/src)
-target_link_libraries(cpp-benchmark INTERFACE cpp-utility googlebenchmark threads)
+target_link_libraries(cpp-benchmark PUBLIC cpp-utility googlebenchmark threads)
 
 if (ENABLE_INSTALL)
     include(GNUInstallDirs)
@@ -12,9 +12,8 @@ if (ENABLE_INSTALL)
     # Install the project's header files (destination is relative to CMAKE_INSTALL_PREFIX)
     # header-only libraries should keep their header files in the src folder
     # static libraries should have an additional directory (include) to keep the global header files
-    install(
-            DIRECTORY ${PROJECT_SOURCE_DIR}/include/
-            DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
-            FILES_MATCHING PATTERN "*.hpp"
-    )
+    install(TARGETS cpp-benchmark
+            LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
+    install(DIRECTORY ${PROJECT_SOURCE_DIR}/include/
+            DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 endif ()
